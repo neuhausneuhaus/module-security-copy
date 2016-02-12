@@ -60,7 +60,7 @@ Once we have the table name for our users, we can try to get some password. Usin
 ```sql
 SELECT * FROM supercar WHERE cylinder = 'V6' AND 1=(SELECT TOP 1 cylinders FROM supercar);--';
 ```
-`TOP 1` will limit the results to one row. We are also onlly selecting one column "cylinders". This is a single value (the string "V6") so it actually makes sense to try to compare it to the value 1! The following error message is displayed: `Conversion failed when converting the nvarchar value 'V6' to data type int.` It tried to convert "V6" to an integer and it actually showed us the value in the error message! Perhaps we can do something similar with a user's password.
+`TOP 1` will limit the results to one row. We are also only selecting one column "cylinders". This is a single value (the string "V6") so it actually makes sense to try to compare it to the value 1! The following error message is displayed: `Conversion failed when converting the nvarchar value 'V6' to data type int.` It tried to convert "V6" to an integer and it actually showed us the value in the error message! Perhaps we can do something similar with a user's password.
 
 - [ ] Craft an inner query to obtain a random user's password
 - [ ] Exchange emails (that you used to register with this app) with another group and try to obtain one another's passwords.
@@ -121,3 +121,6 @@ Apparently my userid is 46. You should be able to achieve the same editing capab
 - [ ] Using either the command line or Chrome's "Postman" app, recreate this post request to edit your name once more
 - [ ] Add another field to the request body `isAdmin: true`
 - [ ] See if anything is different
+
+#### Counter-measures
+Do not let unexpected parameters to enter the database query. Only "firstName" and "lastName should be allowed".
